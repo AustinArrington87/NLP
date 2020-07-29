@@ -14,3 +14,9 @@ In Python Shell enable Natural Languge Toolkit Modules by entering commands and 
 import nltk
 
 nltk.download()
+
+NOTE: If you have installed Python with anaconda, you may have issue on Mac where you get logged out when running matplotlb 
+
+ in ~/.matplotlib/matplotlibrc just add the following line:
+
+backend: qt5agg
