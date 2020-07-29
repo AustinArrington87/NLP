@@ -3,7 +3,12 @@ Natural Language Processing with Python
 
 ![Image description](https://www.googleapis.com/drive/v3/files/10GstgLvY3YUyMD9wb8qHF1nQ4CQad73H?alt=media&key=AIzaSyDb-0FGRW1eS0pDUwvGJFM4SsxisP3j5rc)
 
-Scripts for web scraping and natural language processing
+Python scripts for web scraping and natural language processing.
+
+1. healthNews.py shows how to calculate word frequency from a scraped web page
+2. sentiment.py shows how to use VADER (Valence Aware Dictionary and sEntiment Reasoner)
+
+########
 
 NLTK Installation
 
