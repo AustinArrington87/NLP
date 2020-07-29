@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 from nltk.corpus import stopwords
 import matplotlib.pylab as plt
 
-# DESCRIPTION 
 # Webscrape and frequency analyze the lastest Health News 
 # Install nltk: $ pip install --user -U nltk
 # To load modules open Python shell and enter >>> import nltk >>> nltk.download()
