@@ -13,7 +13,7 @@ html = response.read()
 #print(html)
 soup = BeautifulSoup(html, 'html5lib')
 text = soup.get_text(strip = True)
-#print(text)
+print(text)
 # tokenize words 
 tokens  =  [t for t in text.split()]
 #print(tokens)
