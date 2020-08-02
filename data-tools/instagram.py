@@ -2,8 +2,8 @@ import json
 import itertools
 import csv
 import os
-from nltk.corpus import stopwords
-import matplotlib.pylab as plt
+#from nltk.corpus import stopwords
+#import matplotlib.pylab as plt
 
 with open('messages.json') as f:
     data = json.load(f)
