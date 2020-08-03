@@ -5,11 +5,16 @@ import os
 #import matplotlib.pylab as plt
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk import tokenize
-#from nltk.corpus import stopwords
+from nltk.corpus import stopwords
+# for decoding emojis
+import emoji 
 # import sentiment function
 import sys
 sys.path.append("lib/") 
 from sentiment import SIA
+# word freq func
+from frequency import wordFreq
+
 # ingest JSON data
 with open('messages.json') as f:
     data = json.load(f)
@@ -57,42 +62,19 @@ for message in data:
 
 #print(user_conversation_ts)
 #print(user_conversations_list)
-# dictionry of timestamped messages from your user -- in this case "plant_group"
-#print(user_convo_dic)
-
-# Tokenize words for NLP 
-#tokens_list = []
-#
-#for item in user_conversations_list:
-#    try:
-#        tokens = [t for t in item.split()]
-#        #print(tokens)
-#        tokens_list.append(tokens)
-#    except:
-#        pass
-#    
-#print(tokens_list)
-# now flatten token list of lists
-# token_list = list(itertools.chain(*tokens_list))
-#print(token_list)
-
-#sid = SentimentIntensityAnalyzer()
-#for sentence in user_conversations_list:
-#    print(sentence)
-#    try:
-#        ss = sid.polarity_scores(sentence)
-#        for k in sorted(ss):
-#            print('{0}: {1}, '.format(k, ss[k]), end='')
-#
-#    except:
-#        pass
-#    
+user_convo_list_filtered = []
+for convo in user_conversations_list:
+    user_convo_list_filtered.append(emoji.demojize(str(convo)))
+print(user_convo_list_filtered)
 
 # call sentiment analyzer function on sentences 
-SIA = SIA(user_conversations_list)
+SIA = SIA(user_convo_list_filtered)
 print(SIA)
 # VADER (Valence Aware Dictionary and sEntiment Reasoner) is a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social media
 # positive sentiment : (compound score >= 0.05)
 # neutral sentiment : (compound score > -0.05) and
 # negative sentiment : (compound score <= -0.05)
 
+# Frequency - Graph highest frequency words
+wordFreq = wordFreq(user_convo_list_filtered)
+wordFreq

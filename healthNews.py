@@ -16,7 +16,7 @@ text = soup.get_text(strip = True)
 print(text)
 # tokenize words 
 tokens  =  [t for t in text.split()]
-#print(tokens)
+print(tokens)
 
 # remove stop words (am, at, the, for) and count frequency
 sr = stopwords.words('english')
