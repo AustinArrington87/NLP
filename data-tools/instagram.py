@@ -62,6 +62,7 @@ for message in data:
 
 #print(user_conversation_ts)
 #print(user_conversations_list)
+# convert emoji to word 
 user_convo_list_filtered = []
 for convo in user_conversations_list:
     user_convo_list_filtered.append(emoji.demojize(str(convo)))
