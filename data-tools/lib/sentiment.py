@@ -1,11 +1,4 @@
-import json
-import itertools
-import csv
-import os
-#from nltk.corpus import stopwords
-#import matplotlib.pylab as plt
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-from nltk import tokenize
 
 def SIA (user_conversations_list):
     sid = SentimentIntensityAnalyzer()
