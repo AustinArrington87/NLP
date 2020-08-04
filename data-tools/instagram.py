@@ -68,14 +68,39 @@ for convo in user_conversations_list:
     user_convo_list_filtered.append(emoji.demojize(str(convo)))
 print(user_convo_list_filtered)
 
+# Frequency - Graph highest frequency words
+wordFreq = wordFreq(user_convo_list_filtered)
+
 # call sentiment analyzer function on sentences 
 SIA = SIA(user_convo_list_filtered)
-print(SIA)
+#print(SIA)
 # VADER (Valence Aware Dictionary and sEntiment Reasoner) is a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social media
 # positive sentiment : (compound score >= 0.05)
 # neutral sentiment : (compound score > -0.05) and
 # negative sentiment : (compound score <= -0.05)
+negScore = []
+posScore = []
+neutScore = []
+compScore = []
 
-# Frequency - Graph highest frequency words
-wordFreq = wordFreq(user_convo_list_filtered)
-wordFreq
+for sentimentScore in SIA:
+    negScore.append(sentimentScore['neg'])
+    posScore.append(sentimentScore['pos'])
+    neutScore.append(sentimentScore['neu'])
+    compScore.append(sentimentScore['compound'])
+    
+print("-------------------IG SENTIMENT ANALYSIS-------------------------------")
+print("Negative Sentiment Avg: " + str(round(sum(negScore)/len(negScore),5)))
+print("Positive Sentiment Avg: " + str(round(sum(posScore)/len(posScore),5)))
+print("Neutral Sentiment Avg: " + str(round(sum(neutScore)/len(neutScore),5)))
+    
+
+
+
+
+
+
+
+
+
+
